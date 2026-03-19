@@ -10,6 +10,21 @@
 html {
     scroll-behavior: smooth;
 }
+/*Font Labrada Regular*/
+@font-face {
+    font-family:'Labrada';
+    src: url('assets/fonts/Labrada-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Font Labrada Corsivo*/
+@font-face {
+    font-family: 'Labrada';
+    src: url('assets/fonts/Labrada-Italic.ttf') format ('truetype');
+    font-weight: normal;
+    font-style:italic; 
+}
 
 /* ============================================
    CSS CUSTOM PROPERTIES (Color Palette)
@@ -35,9 +50,9 @@ html {
     --black: #1A1A1A;
     
     /* Typography - Serif for headings, Sans-serif for body */
-    --font-serif: 'Cormorant Garamond', Georgia, serif;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    
+    --font-serif: 'Labrada', Georgia, serif;
+   /* --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;*/
+    --font-sans: 'Labrada', sans-serif;
     /* Spacing Scale */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
@@ -516,9 +531,10 @@ img {
     color: var(--white);
 }
 
-.project-card--light {
-    background-color: var(--sand-light);
-    color: var(--slate-dark);
+.project-card--dark *{
+    background-color: #984522;
+    color: var(--white);
+    
 }
 
 .project-card--image {
