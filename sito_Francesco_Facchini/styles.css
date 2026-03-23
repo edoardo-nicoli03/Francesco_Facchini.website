@@ -236,8 +236,9 @@ img {
     min-height: 100vh;
     padding-top: 80px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.8fr 1.2fr;
     background-color: #8c977f;
+    overflow: hidden;
 }
 
 /* Hero Content - Left Side */
@@ -248,7 +249,7 @@ img {
     padding: var(--space-3xl);
     background-color: var(--sage-green);
     position: relative;
-    overflow: hidden;
+    max-width: 100%;
 }
 
 .hero-content::before {
@@ -272,11 +273,12 @@ img {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     color: var(--white);
     line-height: 1.1;
     margin-bottom: var(--space-md);
     font-weight: 400;
+    font-family: var(--font-serif);
     font-style: italic;
 }
 
@@ -285,7 +287,8 @@ img {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.7;
-    max-width: 400px;
+    max-width: 480px;
+    margin-bottom: var(--space-md);
 }
 
 .hero-year {
@@ -299,41 +302,113 @@ img {
     line-height: 1;
 }
 
+.hero-list {
+    list-style: none; /* Togliamo i bruttissimi pallini di default */
+    padding-left: 0;
+    margin: var(--space-md) 0;
+    font-family: var(--font-sans);
+    color: rgba(255, 255, 255, 0.85); /* Stesso colore del testo normale */
+}
+
+.hero-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+.hero-list li::before {
+    content: '—'; 
+    position: absolute;
+    left: 0;
+    color: var(--sand-beige); /* Usiamo il color sabbia per creare un bel dettaglio */
+    font-weight: bold;
+}
+
 /* Hero Image - Right Side */
 .hero-image {
     position: relative;
     overflow: hidden;
 }
 
-.hero-image-placeholder {
+/* Hero Image - Right Side */
+.hero-image {
+    position: relative;
+    overflow: hidden;
+    /* Opzionale: se l'immagine non è alta abbastanza, puoi dare un'altezza fissa al contenitore genitore */
+    min-height: 100%; 
+}
+
+/* La vera immagine */
+.foto-copertina {
     width: 100%;
     height: 100%;
-    min-height: 500px;
-  /*  background: linear-gradient(135deg, var(--sand-beige) 0%, var(--sand-light) 100%);*/
-    background-color: #efede5 ;
+    object-fit: cover; /* Ecco il comando giusto sull'elemento giusto! */
+    object-position: center; /* Tiene a fuoco il centro della foto */
+}
+/* --- Lato Destro: Il VERO Slider Solo-CSS --- */
+.hero-image-slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--sand-beige);
+    overflow: hidden;
+}
+
+.hero-image-slider {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-md);
-    color: var(--slate-light);
+    width: 100%;
+    height: 100%;
+    
+    /* ATTIVA LO SCROLL ORIZZONTALE */
+    overflow-x: scroll;
+    
+    /* ATTIVA IL CSS SCROLL SNAP */
+    scroll-snap-type: x mandatory;
+    
+    /* Nascondiamo la barra di scorrimento brutta */
+    -webkit-overflow-scrolling: touch; /* Per fluidità su iOS */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
 }
 
-.hero-image-placeholder svg {
-    width: 80px;
-    height: 80px;
-    opacity: 0.4;
+/* Nascondiamo la barra di scorrimento su Chrome/Safari */
+.hero-image-slider::-webkit-scrollbar {
+    display: none;
 }
 
-.hero-image-placeholder span {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    opacity: 0.6;
+.slider-image {
+    flex: 0 0 100%; /* Ogni immagine prende il 100% del contenitore */
+    width: 100%;
+    height: 100%;
+    
+    /* Assicuriamo che la foto riempia senza deformarsi */
+    object-fit: cover; 
+    object-position: center;
+    
+    /* PUNTO DI AGGANCIO: L'immagine si blocca all'inizio */
+    scroll-snap-align: start; 
 }
 
+/* Opzionale: Indicatore graficho "Scorri" */
 
 
+/* ============================================
+   RESPONSIVE (Opzionale: Per Cellulari)
+   ============================================ */
+@media (max-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr; /* Una colonna sola */
+    }
+    .hero-content {
+        padding: var(--space-3xl) var(--space-lg);
+        order: 2; /* Testo sotto l'immagine */
+    }
+    .hero-image-slider-wrapper {
+        height: 50vh; /* Immagine prende metà altezza */
+        order: 1; /* Immagine sopra il testo */
+    }
+}
 /* ============================================
    SECTION - General Styles
    ============================================ */
@@ -902,4 +977,61 @@ img {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+
+/* ============================================
+   SLIDER - Frecce e Puntini
+   ============================================ */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.82);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--sage-dark);
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-btn:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.slider-btn--prev { left: 16px; }
+.slider-btn--next { right: 16px; }
+
+.slider-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.slider-dot.active {
+    background: white;
+    transform: scale(1.35);
 }

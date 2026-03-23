@@ -49,24 +49,35 @@
          ============================================ -->
     <header class="hero" id="hero">
         <div class="hero-content">
-            <span class="hero-label">Lorem ipsum dolor sit amet.</span>
-            <h1 class="hero-title">Il progetto per il parco</h1>
+            <span class="hero-label"></span>
+            <h1 class="hero-title">Il Metodo</h1>
             <p class="hero-subtitle">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris approfondito nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                L’approccio adottato integra rilievi diretti, analisi dei dati e strumenti digitali, con l’obiettivo di:
+                </p>
+                <ul class="hero-list">
+                    <li> ridurre le incertezze progettuali </li>
+                    <li> prevenire criticità in fase esecutiva </li>
+                    <li> ottimizzare le soluzioni tecniche </li>
 
-            </p>
+                </ul>
+                <p class="hero-subtitle last paragraph">
+
+                L’attenzione è sempre rivolta alla sicurezza, alla fattibilità e alla sostenibilità degli interventi. 
+
+                </p>
 
         </div>
-        <div class="hero-image">
-            <div class="hero-image-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                    <rect x="3" y="3" width="18" height="18" rx="2"/>
-                    <circle cx="8.5" cy="8.5" r="1.5"/>
-                    <path d="M21 15l-5-5L5 21"/>
-                </svg>
-                <span>Immagine natura</span>
-            </div>
-        </div>
+
+    <div class="hero-image-slider-wrapper">
+           <div class="hero-image-slider" id="heroSlider">
+        <img src="assets/Hero_img.jpeg" alt="Vista 1" class="slider-image">
+        <img src="assets/strada dall'alto.jpeg" alt="Vista 2" class="slider-image">
+        <img src="assets/foto pino.jpeg" alt="Vista 3" class="slider-image">
+    </div>
+    <button class="slider-btn slider-btn--prev" onclick="slideHero(-1)">&#8592;</button>
+    <button class="slider-btn slider-btn--next" onclick="slideHero(1)">&#8594;</button>
+    <div class="slider-dots" id="sliderDots"></div>
+    </div>
     </header>
 
     <!-- ============================================
@@ -326,5 +337,28 @@
             }
         });
     </script>
+    <script>
+    const slider = document.getElementById('heroSlider');
+    const dotsContainer = document.getElementById('sliderDots');
+    const images = slider.querySelectorAll('.slider-image');
+    let current = 0;
+
+    images.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+        dot.onclick = () => goTo(i);
+        dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index) {
+        current = (index + images.length) % images.length;
+        slider.scrollTo({ left: slider.clientWidth * current, behavior: 'smooth' });
+        document.querySelectorAll('.slider-dot').forEach((d, i) =>
+            d.classList.toggle('active', i === current));
+    }
+
+    function slideHero(dir) { goTo(current + dir); }
+</script>
 </body>
 </html>
