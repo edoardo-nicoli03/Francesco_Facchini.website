@@ -233,7 +233,8 @@ img {
    HERO SECTION - Editorial Split Layout
    ============================================ */
 .hero {
-    min-height: 100vh;
+    min-height: 40vh;
+    max-height: 600px;
     padding-top: 80px;
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
