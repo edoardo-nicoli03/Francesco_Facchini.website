@@ -235,7 +235,7 @@ img {
 .hero {
     min-height: 40vh;
     max-height: 600px;
-    padding-top: 80px;
+    padding-top: 20px;
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     background-color: #8c977f;
@@ -344,33 +344,25 @@ img {
 .foto-copertina {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ecco il comando giusto sull'elemento giusto! */
-    object-position: center; /* Tiene a fuoco il centro della foto */
+    object-fit: cover; 
+    object-position: center; 
 }
-/* --- Lato Destro: Il VERO Slider Solo-CSS --- */
+
 .hero-image-slider-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: var(--sand-beige);
     overflow: hidden;
 }
 
 .hero-image-slider {
     display: flex;
-    width: 100%;
+    width: 300%;
     height: 100%;
+    overflow: hidden;
+    animation: autoSlide 9s infinite;
     
-    /* ATTIVA LO SCROLL ORIZZONTALE */
-    overflow-x: scroll;
-    
-    /* ATTIVA IL CSS SCROLL SNAP */
-    scroll-snap-type: x mandatory;
-    
-    /* Nascondiamo la barra di scorrimento brutta */
-    -webkit-overflow-scrolling: touch; /* Per fluidità su iOS */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE/Edge */
+
 }
 
 /* Nascondiamo la barra di scorrimento su Chrome/Safari */
@@ -379,8 +371,8 @@ img {
 }
 
 .slider-image {
-    flex: 0 0 100%; /* Ogni immagine prende il 100% del contenitore */
-    width: 100%;
+    flex-shrink: 0; /* Ogni immagine prende il 100% del contenitore */
+    width: 33.333%;
     height: 100%;
     
     /* Assicuriamo che la foto riempia senza deformarsi */
@@ -388,10 +380,19 @@ img {
     object-position: center;
     
     /* PUNTO DI AGGANCIO: L'immagine si blocca all'inizio */
-    scroll-snap-align: start; 
+ 
+}
+@keyframes autoSlide {
+    0%   { transform: translateX(0); }
+    30%  { transform: translateX(0); }
+    33%  { transform: translateX(-33.333%); }
+    63%  { transform: translateX(-33.333%); }
+    66%  { transform: translateX(-66.666%); }
+    96%  { transform: translateX(-66.666%); }
+    100% { transform: translateX(0); }
 }
 
-/* Opzionale: Indicatore graficho "Scorri" */
+
 
 
 /* ============================================
@@ -981,58 +982,3 @@ img {
 }
 
 
-/* ============================================
-   SLIDER - Frecce e Puntini
-   ============================================ */
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.82);
-    border: none;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    color: var(--sage-dark);
-    transition: background var(--transition-fast), transform var(--transition-fast);
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slider-btn:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.08);
-}
-
-.slider-btn--prev { left: 16px; }
-.slider-btn--next { right: 16px; }
-
-.slider-dots {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    z-index: 10;
-}
-
-.slider-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    padding: 0;
-    transition: background var(--transition-fast), transform var(--transition-fast);
-}
-
-.slider-dot.active {
-    background: white;
-    transform: scale(1.35);
-}
