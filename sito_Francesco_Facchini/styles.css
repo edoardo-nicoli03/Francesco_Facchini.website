@@ -664,11 +664,11 @@ img {
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
-    opacity: 0.5;
+    
 }
 
-.project-image-placeholder svg {
-    width: 50px;
+.project-image-placeholder jpeg {
+    width: 100px;
     height: 50px;
 }
 
@@ -677,6 +677,7 @@ img {
     text-transform: uppercase;
     letter-spacing: 0.15em;
 }
+
 
 /* ============================================
    SECTION - Contatti (Footer)
