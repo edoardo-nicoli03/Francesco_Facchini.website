@@ -1,4 +1,3 @@
-
 *,
 *::before,
 *::after {
@@ -10,6 +9,7 @@
 html {
     scroll-behavior: smooth;
 }
+
 /*Font Labrada Regular*/
 @font-face {
     font-family:'Labrada';
@@ -21,17 +21,15 @@ html {
 /*Font Labrada Corsivo*/
 @font-face {
     font-family: 'Labrada';
-    src: url('assets/fonts/Labrada-Italic.ttf') format ('truetype');
+    src: url('assets/fonts/Labrada-Italic.ttf') format('truetype');
     font-weight: normal;
-    font-style:italic; 
+    font-style: italic; 
 }
 
 /* ============================================
    CSS CUSTOM PROPERTIES (Color Palette)
-   Editorial Colors: Sage, Sand, Slate
    ============================================ */
 :root {
-    /* Primary Colors - Editorial Palette */
     --sage-green: #8B9D83;
     --sage-light: #A8B5A0;
     --sage-dark: #6B7D63;
@@ -44,16 +42,13 @@ html {
     --slate-medium: #3D3D3D;
     --slate-light: #5A5A5A;
     
-    /* Neutral Colors */
     --white: #FFFFFF;
     --off-white: #FAFAF8;
     --black: #1A1A1A;
     
-    /* Typography - Serif for headings, Sans-serif for body */
     --font-serif: 'Labrada', Georgia, serif;
-   /* --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;*/
     --font-sans: 'Labrada', sans-serif;
-    /* Spacing Scale */
+    
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
@@ -62,7 +57,6 @@ html {
     --space-2xl: 4rem;
     --space-3xl: 6rem;
     
-    /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-base: 0.3s ease;
     --transition-slow: 0.5s ease;
@@ -111,6 +105,9 @@ img {
     display: block;
 }
 
+/* ============================================
+   NAVBAR
+   ============================================ */
 /* ============================================
    NAVBAR - Sticky Navigation
    ============================================ */
@@ -173,8 +170,6 @@ img {
     margin-left: 50px;
 
 }
-
-/* Navigation Links */
 .navbar-links {
     display: flex;
     align-items: center;
@@ -211,7 +206,6 @@ img {
     width: 100%;
 }
 
-/* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -230,7 +224,7 @@ img {
 }
 
 /* ============================================
-   HERO SECTION - Editorial Split Layout
+   HERO SECTION - 3 IMMAGINI
    ============================================ */
 .hero {
     height: 80vh;
@@ -240,7 +234,7 @@ img {
     flex-direction: column;
     background-color: #8c977f;
     overflow: hidden;
-    position :relative;
+    position: relative;
 }
 
 .hero-image-slider-wrapper {
@@ -249,18 +243,15 @@ img {
     height: 100%;
     overflow: hidden;
     min-height: 0;
-
 }
 
 .hero-image-slider {
     display: flex;
     width: 300%;
     height: 100%;
-    animation: autoSlide 9s infinite;    
-
+    animation: autoSlide 9s infinite;
 }
 
-/* Nascondiamo la barra di scorrimento su Chrome/Safari */
 .hero-image-slider::-webkit-scrollbar {
     display: none;
 }
@@ -272,18 +263,13 @@ img {
     object-position: center center;
     flex-shrink: 0;
     display: block;
-
-    }
-
-.hero-image-slider .slider-image:nth-child(2) {
-    object-position: center 50%;
-
-
-}   
-
-.hero-image-slider .slider-image:nth-child(3) {
-    object-position: center 50%;
 }
+
+/* Regolazioni inquadrature (opzionali per le prime 3) */
+.hero-image-slider .slider-image:nth-child(1) { object-position: center 47%; }
+.hero-image-slider .slider-image:nth-child(2) { object-position: center 30%; }
+.hero-image-slider .slider-image:nth-child(3) { object-position: center 30%; }
+
 @keyframes autoSlide {
     0%   { transform: translateX(0); }
     30%  { transform: translateX(0); }
@@ -294,12 +280,6 @@ img {
     100% { transform: translateX(0); }
 }
 
-
-
-
-/* ============================================
-   RESPONSIVE (Opzionale: Per Cellulari)
-   ============================================ */
 @media (max-width: 992px) {
     .hero {
         height: auto;
@@ -307,17 +287,18 @@ img {
     }
     .hero-content {
         padding: var(--space-3xl) var(--space-lg);
-        order: 2; /* Testo sotto l'immagine */
+        order: 2;
     }
     .hero-image-slider-wrapper {
-        height: 50vh; /* Immagine prende metà altezza */
+        height: 50vh;
         flex: none;
         width: 100%;
-        order: 1; /* Immagine sopra il testo */
+        order: 1;
     }
 }
+
 /* ============================================
-   SECTION - General Styles
+   SECTIONS
    ============================================ */
 .section {
     padding: var(--space-3xl) var(--space-lg);
@@ -328,9 +309,6 @@ img {
     margin: 0 auto;
 }
 
-/* ============================================
-   SECTION - Chi Sono (About)
-   ============================================ */
 .chi-sono {
     background-color: var(--off-white);
 }
@@ -425,34 +403,27 @@ img {
 }
 
 /* ============================================
-   SECTION - I Miei Lavori (Projects Grid)
+   I MIEI LAVORI (Projects Grid)
    ============================================ */
 .lavori {
     background-color: var(--sand-cream);
 }
 
 .lavori-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: var(--space-3xl);
 }
 
-.lavori-header .section-number {
-    font-size: 4rem;
-}
-
 .lavori-header .section-title::after {
-    margin: var(--space-md) auto 0;
+    margin: var(--space-md) 0 0;
 }
 
-/* Projects Grid - Magazine Layout using CSS Grid */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-lg);
 }
 
-/* Project Cards */
 .project-card {
     position: relative;
     overflow: hidden;
@@ -464,89 +435,103 @@ img {
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Card Sizes and Positions - Asymmetric Grid */
-.project-card--large {
-    grid-column: span 7;
-    grid-row: span 2;
-}
-
-.project-card--medium {
-    grid-column: span 5;
-}
-
-.project-card--small {
-    grid-column: span 4;
-}
-
-/* Card Inner Content */
 .project-card-inner {
     height: 100%;
-    min-height: 300px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    color: #ffffff;
+}
+
+.project-card-content {
+    flex: 1 1 auto;
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color : #ffffff;
 }
 
-/* Card Color Variants - Editorial Palette */
+.project-card-media {
+    flex: 0 0 38%;
+    min-width: 240px;
+    position: relative;
+}
+
+.project-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.project-card-media--placeholder {
+    background-color: #e7e4de;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card-media--placeholder span {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #8c8c8c !important;
+}
+
+/* ============================================
+   Card Color Variants 
+   ============================================ */
+
+/* 1 & 6. Variante RUST (#984522) */
+.project-card--rust {
+    background-color: #984522;
+}
+.project-card--rust * {
+    color: #ffffff !important;
+}
+
+/* 2. Variante BEIGE (#c2b29a) - Testi scuri */
+.project-card--beige {
+    background-color: #c2b29a;
+}
+.project-card--beige * {
+    color: #ffffff !important; 
+}
+.project-card--beige .project-title {
+    background-image: linear-gradient(#ffffff, #ffffff);
+    padding-bottom: 10px; 
+}
+
+
+/* 3. Variante SAGE (#8c977f) */
 .project-card--sage {
-    background-color: var(--sage-green);
+    background-color: #8c977f;
 }
-
 .project-card--sage * {
     color: #ffffff !important;
 }
 
-.project-card--beige {
-    background-color: var(--sand-beige);
-}
-
-.project-card--beige * {
-    color: #ffffff !important;
-}
-
-.project-card--dark {
-    background-color: var(--slate-dark);
-}
-
-.project-card--dark * {
-    color: #ffffff !important;
-}
-
+/* 4. Variante BLUE (#7a8a92) */
 .project-card--blue {
     background-color: #7a8a92;
 }
-
 .project-card--blue * {
     color: #ffffff !important;
 }
 
-.project-card--image {
-    background-color: var(--sage-light);
+/* 5. Variante DARK (#202020) */
+.project-card--dark {
+    background-color: #202020;
 }
-
-.project-card--image * {
+.project-card--dark * {
     color: #ffffff !important;
 }
 
-/* Card Typography */
-.project-label {
-    font-size: clamp(0.6rem, 1vw, 0.8rem);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    opacity: 0.75;
-    margin-bottom: var(--space-xs);
-    color: #ffffff;
-    transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.project-card:hover .project-label {
-    opacity: 1;
-    transform: translateX(3px);
-}
-
+/* Testi Card */
 .project-title {
     font-family: var(--font-serif);
     font-size: clamp(1.4rem, 2.2vw, 1.9rem);
@@ -555,11 +540,25 @@ img {
     line-height: 1.2;
     margin-bottom: var(--space-sm);
     color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     background-image: linear-gradient(#ffffff, #ffffff);
     background-repeat: no-repeat;
     background-size: 0% 1.5px;
     background-position: left bottom;
     transition: background-size 0.4s ease, transform 0.3s ease;
+}
+
+.project-icon {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0) invert(1); /* Effetto bianco base */
+    transform: scale(1.8);
+    transform-origin: center;
+    flex-shrink: 0;
 }
 
 .project-card:hover .project-title {
@@ -571,7 +570,7 @@ img {
     font-size: clamp(0.9rem, 1.3vw, 1.1rem);
     line-height: 1.6;
     opacity: 0.85;
-    max-width: 90%;
+    max-width: none;
     color: #ffffff;
     transition: opacity 0.25s ease;
 }
@@ -581,52 +580,15 @@ img {
 }
 
 .project-list {
-    margin-top: 10%;
+    margin-top: var(--space-sm);
+    padding-left: 1.2rem;
     font-size: clamp(1rem, 1.6vw, 1.4rem);
-    max-height: 2cm;
+    max-height: none;
     color: #ffffff;
 }
-
-.project-number {
-    font-family: var(--font-serif);
-    font-size: 4rem;
-    font-weight: 300;
-    opacity: 0.15;
-    position: absolute;
-    bottom: var(--space-md);
-    right: var(--space-md);
-    pointer-events: none;
-    color: #ffffff;
-}
-
-/* Image Placeholder in Cards */
-.project-image-placeholder {
-    width: 100%;
-    height: 100%;
-    min-height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    
-}
-
-.project-image-placeholder jpeg {
-    width: 100px;
-    height: 50px;
-}
-
-.project-image-placeholder span {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-}
-
-
 
 /* ============================================
-   SECTION - Contatti (Footer)
+   CONTATTI E FOOTER
    ============================================ */
 .contatti {
     background-color: #202020;
@@ -658,7 +620,6 @@ img {
     font-size: 1rem;
 }
 
-/* Contact Links */
 .contatti-links {
     display: flex;
     flex-direction: column;
@@ -716,7 +677,6 @@ img {
     font-weight: 500;
 }
 
-/* Footer Bottom */
 .footer-bottom {
     max-width: 1200px;
     margin: var(--space-3xl) auto 0;
@@ -738,62 +698,27 @@ img {
     gap: var(--space-sm);
 }
 
-.footer-logo svg {
-    width: 30px;
-    height: 30px;
-    fill: var(--sage-green);
-}
-
-.footer-logo span {
-    font-family: var(--font-serif);
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
 /* ============================================
-   RESPONSIVE STYLES - Media Queries
+   RESPONSIVE STYLES
    ============================================ */
-
-/* Tablet - Large (1100px and below - half screen PC) */
 @media (max-width: 1100px) {
-    .projects-grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
-
-    .project-card--large {
-        grid-column: span 6;
-        grid-row: span 1;
-    }
-
-    .project-card--medium {
-        grid-column: span 3;
-    }
-
-    .project-card--small {
-        grid-column: span 3;
+    .project-card-media {
+        flex-basis: 40%;
+        min-width: 220px;
     }
 }
 
-/* Tablet - Large (1024px and below) */
 @media (max-width: 1024px) {
-    .chi-sono-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
-    }
-
-    .contatti-container {
+    .chi-sono-grid, .contatti-container {
         grid-template-columns: 1fr;
         gap: var(--space-xl);
     }
 }
 
-/* Tablet - Small (768px and below) */
 @media (max-width: 768px) {
     :root {
         --space-3xl: 4rem;
     }
-
-    /* Mobile Navigation */
     .navbar-links {
         position: fixed;
         top: 0;
@@ -806,145 +731,38 @@ img {
         transition: right var(--transition-base);
         gap: var(--space-xl);
     }
-
-    .navbar-links.active {
-        right: 0;
-    }
-
-    .navbar-links a {
-        font-size: 1.2rem;
-    }
-
-    .menu-toggle {
-        display: flex;
-        z-index: 1001;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* Hero Responsive */
-    .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-    }
-
-    .hero-content {
-        padding: var(--space-xl);
-        min-height: 60vh;
-    }
-
-    .hero-year {
-        font-size: 4rem;
-        bottom: var(--space-lg);
-        left: var(--space-xl);
-    }
-
-    .hero-image-placeholder {
-        min-height: 300px;
-    }
-
-    /* Projects Grid Mobile */
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .project-card--large,
-    .project-card--medium,
-    .project-card--small {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-
-    .project-card-inner {
-        min-height: 250px;
-    }
-
-    /* Footer Mobile */
-    .footer-bottom {
-        flex-direction: column;
-        gap: var(--space-md);
-        text-align: center;
-    }
+    .navbar-links.active { right: 0; }
+    .navbar-links a { font-size: 1.2rem; }
+    .menu-toggle { display: flex; z-index: 1001; }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-content { padding: var(--space-xl); min-height: 60vh; }
+    
+    .project-card-inner { flex-direction: column; min-height: 0; }
+    .project-card-content { padding: var(--space-lg); }
+    .project-card-media { flex-basis: auto; min-width: 0; width: 100%; height: 180px; }
+    .footer-bottom { flex-direction: column; gap: var(--space-md); text-align: center; }
 }
 
-/* Mobile - Tablet (768px and below) */
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .project-card--large,
-    .project-card--medium,
-    .project-card--small {
-        grid-column: span 2;
-    }
-}
-
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card--large,
-    .project-card--medium,
-    .project-card--small {
-        grid-column: span 1;
-    }
-}
-
-/* Mobile (480px and below) */
 @media (max-width: 480px) {
     :root {
         --space-lg: 1.5rem;
         --space-xl: 2rem;
         --space-3xl: 3rem;
     }
-
-    .navbar {
-        padding: var(--space-sm);
-    }
-
-    .logo-text {
-        font-size: 0.9rem;
-    }
-
-    .hero-content {
-        padding: var(--space-lg);
-    }
-
-    .section {
-        padding: var(--space-xl) var(--space-sm);
-    }
-
-    .btn {
-        padding: var(--space-sm) var(--space-lg);
-        font-size: 0.8rem;
-    }
-
-    .contact-item {
-        padding: var(--space-sm);
-    }
-
-    .contact-icon {
-        width: 40px;
-        height: 40px;
-    }
+    .navbar { padding: var(--space-sm); }
+    .logo-text { font-size: 0.9rem; }
+    .section { padding: var(--space-xl) var(--space-sm); }
+    .btn { padding: var(--space-sm) var(--space-lg); font-size: 0.8rem; }
+    .contact-item { padding: var(--space-sm); }
+    .contact-icon { width: 40px; height: 40px; }
+    .project-card-content { padding: var(--space-md); }
 }
 
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
+/* Utilities */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -956,5 +774,3 @@ img {
     white-space: nowrap;
     border: 0;
 }
-
-

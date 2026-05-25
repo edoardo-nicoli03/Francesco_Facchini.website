@@ -6,36 +6,27 @@
     <title>Geologo Francesco Facchini | Portfolio</title>
     <meta name="description" content="Portfolio professionale del Geologo Francesco Facchini - Consulenza geologica, analisi del territorio e studi ambientali.">
     
-    <!-- Google Fonts - Serif for headings, Sans-serif for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- External CSS File -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- ============================================
-         NAVBAR - Sticky Navigation
-         ============================================ -->
     <nav class="navbar" role="navigation" aria-label="Navigazione principale">
         <div class="navbar-container">
-            <!-- Logo with Mountain Icon -->
             <a href="#" class="navbar-logo" aria-label="Torna alla home">
                 <div class="logo-icon">
-                    <img src="assets/LOGO_Multicolor.png" alt="Logo Facchini" style = "width: 100%; height: 100% ; object-fit: contain;">
+                    <img src="assets/LOGO_Multicolor.png" alt="Logo Facchini" style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
-             
             </a>
             
-            <!-- Navigation Links -->
             <ul class="navbar-links" id="navLinks">
                 <li><a href="#chi-sono">Chi sono</a></li>
-                <li><a href="#lavori">I miei lavori</a></li>
+                <li><a href="#lavori">Di cosa mi occupo</a></li>
                 <li><a href="#contatti">Contatti</a></li>
             </ul>
             
-            <!-- Mobile Menu Toggle (Hamburger) -->
             <button class="menu-toggle" id="menuToggle" aria-label="Apri menu" aria-expanded="false">
                 <span></span>
                 <span></span>
@@ -44,33 +35,25 @@
         </div>
     </nav>
 
-    <!-- ============================================
-         HERO SECTION - Editorial Split Layout
-         ============================================ -->
     <header class="hero" id="hero">
-       
-    <div class="hero-image-slider-wrapper">
-      <div class="hero-image-slider">
-        <img src="assets/Hero_img.jpeg" alt="Vista 1" class="slider-image">
-        <img src="assets/strada dall'alto.jpeg" alt="Vista 2" class="slider-image">
-        <img src="assets/foto pino.jpeg" alt="Vista 3" class="slider-image">
-     </div>
-    </div>
-     </header>
+        <div class="hero-image-slider-wrapper">
+            <div class="hero-image-slider">
+                <img src="assets/Copertina (1).jpg" alt="Vista 1" class="slider-image">
+                <img src="assets/Copertina (3).jpg" alt="Vista 2" class="slider-image">
+                <img src="assets/Copertina (4).jpg" alt="Vista 3" class="slider-image">
+            </div>
+        </div>
+    </header>
 
-    <!-- ============================================
-         SECTION 1 - Chi Sono (About)
-         ============================================ -->
     <section class="section chi-sono" id="chi-sono" aria-labelledby="chi-sono-title">
         <div class="section-container">
             <div class="chi-sono-grid">
                 <header class="section-header">
-                    <span class="section-number" aria-hidden="true">01</span>
                     <h2 class="section-title" id="chi-sono-title">Chi sono</h2>
                 </header>
                 <div class="chi-sono-content">
                     <p class="chi-sono-text">
-                      Sono un geologo libero professionista con esperienza nella redazione di studi geologici, geotecnici e sismici a supporto della progettazione. Dopo la laurea magistrale in Scienze e Tecnologie Geologiche e l’abilitazione alla professione nel 2020, svolgo attività di consulenza collaborando con studi tecnici e professionisti del settore.  Il mio lavoro si basa sull’integrazione tra indagini in sito, analisi dei dati e modellazione, con l’obiettivo di fornire un quadro affidabile delle condizioni del sottosuolo e supportare decisioni progettuali consapevoli.
+                        Sono un geologo libero professionista con esperienza nella redazione di studi geologici, geotecnici e sismici a supporto della progettazione. Dopo la laurea magistrale in Scienze e Tecnologie Geologiche e l’abilitazione alla professione nel 2020, svolgo attività di consulenza collaborando con studi tecnici e professionisti del settore. Il mio lavoro si basa sull’integrazione tra indagini in sito, analisi dei dati e modellazione, con l’obiettivo di fornire un quadro affidabile delle condizioni del sottosuolo e supportare decisioni progettuali consapevoli.
                     </p>
                     <a href="assets/CV_Francesco_Facchini.pdf" class="btn btn-primary" download="CV_Francesco_Facchini">
                         Scarica il Curriculum
@@ -85,134 +68,107 @@
         </div>
     </section>
 
-    <!-- ============================================
-         SECTION 2 - I Miei Lavori (Projects Grid)
-         ============================================ -->
     <section class="section lavori" id="lavori" aria-labelledby="lavori-title">
         <div class="section-container">
             <header class="lavori-header">
-                <span class="section-number" aria-hidden="true">02</span>
-                <h2 class="section-title" id="lavori-title">I miei lavori</h2>
+                <h2 class="section-title" id="lavori-title">Di cosa mi occupo</h2>
             </header>
             
             <div class="projects-grid">
-                <!-- Project 1 - Large Card (Sage Green) -->
-                <article class="project-card project-card--large project-card--sage">
+                <article class="project-card project-card--large project-card--rust">
                     <div class="project-card-inner">
-                        <div>
-                           
-                            <h3 class="project-title">Il Metodo</h3>
+                        <div class="project-card-content">
+                            <h3 class="project-title"><img src="assets/Metodo_Bn-removebg-preview.png" alt="" class="project-icon">Il Metodo</h3>
                             <p class="project-description">
                                 L'approccio adottato integra rilievi diretti, analisi dei dati e strumenti digitali, con l'obiettivo di:
-                                </p>
-                                <ul class ="project-list">
-                                    <li>ridurre le incertezze progettuali</li>
-                                    <li>prevenire criticità in fase esecutiva</li>
-                                    <li>ottimizzare le soluzioni tecniche</li>
+                            </p>
+                            <ul class="project-list">
+                                <li>ridurre le incertezze progettuali</li>
+                                <li>prevenire criticità in fase esecutiva</li>
+                                <li>ottimizzare le soluzioni tecniche</li>
+                            </ul>
                         </div>
-                        <span class="project-number" aria-hidden="true">01</span>
                     </div>
                 </article>
 
-                <!-- Project 2 - Medium Card (Beige) -->
                 <article class="project-card project-card--medium project-card--beige">
                     <div class="project-card-inner">
-                        <div>
-                            
-                           <h3 class="project-title">Rilievi e indagini</h3>
+                        <div class="project-card-content">
+                            <h3 class="project-title"><img src="assets/Rilievo-removebg-preview.png" alt="" class="project-icon">Rilievi e indagini</h3>
                             <p class="project-description">
                                 Rilievi topografici con drone, sopralluoghi, prove sismiche e attività di monitoraggio
                                 ambientale su suolo, acqua e aria.
                             </p>
                         </div>
-                        <span class="project-number" aria-hidden="true">02</span>
+                        <div class="project-card-media">
+                            <img src="assets/immagine_rilievo.jpeg" alt="Rilievi e indagini">
+                        </div>
                     </div>
                 </article>
 
-                <!-- Project 3 - Medium Card with Image Placeholder -->
-                <article class="project-card project-card--medium project-card--image">
-                    <div class="project-image-placeholder">
-                       <img src="assets/ripresa_drone.jpeg" alt="Immagine progetto 3" style="width: 100%; height: auto; object-fit: cover;">
-                    </div>
-                </article>
-
-                <!-- Project 4 - Small Card (Dark Slate) -->
-                <article class="project-card project-card--small project-card--dark">
+                <article class="project-card project-card--small project-card--sage">
                     <div class="project-card-inner">
-                        <div>
-                            <span class="project-label">Studio</span>
-                            <h3 class="project-title">Analisi e modellazione</h3>
+                        <div class="project-card-content">
+                            <h3 class="project-title"><img src="assets/Analisi_e_modellazione-removebg-preview.png" alt="" class="project-icon">Analisi e modellazione</h3>
                             <p class="project-description">
                                 Analisi di stabilità dei versanti e modellazioni geotecniche, 
                                 con utilizzo di software specialistici e interpretazione dei dati di indagine.
                             </p>
                         </div>
-                        <span class="project-number" aria-hidden="true">03</span>
+                        <div class="project-card-media">
+                            <img src="assets/Modellazione.jpg" alt="Analisi e modellazione">
+                            
+                        </div>
                     </div>
                 </article>
 
-                <!-- Project 5 - Small Card (Light Sand) -->
                 <article class="project-card project-card--small project-card--blue">
                     <div class="project-card-inner">
-                        <div>
-                           
-                            <h3 class="project-title">Cartografia e supporto GIS</h3>
+                        <div class="project-card-content">
+                            <h3 class="project-title"><img src="assets/Gis-removebg-preview.png" alt="" class="project-icon">Cartografia e supporto GIS</h3>
                             <p class="project-description">
                                 Produzione di cartografia tecnica, sezioni geologiche
                                  e analisi territoriali tramite utilizzo avanzato di QGIS e strumenti CAD.
-                                
                             </p>
                         </div>
-                        <span class="project-number" aria-hidden="true">04</span>
+                        <div class="project-card-media project-card-media--placeholder" aria-hidden="true">
+                            <span>Immagine</span>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Project 6 - Small Card with Image Placeholder -->
-                <article class="project-card project-card--small project-card--image">
-                    <div class="project-image-placeholder">
-                        <img src="assets/foto pianta dall'alto.jpeg" alt="Immagine progetto 6" style="width: 100%; height: 100%; object-fit: cover;">
-                       
-                       
-                    </div>
-                </article>
-
-                <!-- Project 7 - Medium Card (Sage Green) -->
-                <article class="project-card project-card--medium project-card--sage">
+                <article class="project-card project-card--medium project-card--dark">
                     <div class="project-card-inner">
-                        <div>
-                            
-                            <h3 class="project-title">Studi Geologici e Geotecnici</h3>
+                        <div class="project-card-content">
+                            <h3 class="project-title"><img src="assets/Studio_di_geologia_e_geotecnica-removebg-preview.png" alt="" class="project-icon">Studi Geologici e Geotecnici</h3>
                             <p class="project-description">
                                 Redazioni di relazioni geologiche, geotecniche e sismiche per interventi edilizi 
                                 e infrasturtturali, in conformità alle normative vigenti.
-
                             </p>
                         </div>
-                        <span class="project-number" aria-hidden="true">05</span>
+                        <div class="project-card-media">
+                            <img src="assets/foto pianta dall'alto.jpeg" alt="Studi geologici e geotecnici">
+                        </div>
                     </div>
                 </article>
 
-                <!-- Project 8 - Medium Card (Dark Slate) -->
-                <article class="project-card project-card--medium project-card--dark">
+                <article class="project-card project-card--medium project-card--rust">
                     <div class="project-card-inner">
-                        <div>
-                          
-                            <h3 class="project-title">Pozzi e sistemi di subirrigazione</h3>
+                        <div class="project-card-content">
+                            <h3 class="project-title"><img src="assets/Pozzi_e_subirrigazione_BN-removebg-preview.png" alt="" class="project-icon">Pozzi e sistemi di subirrigazione</h3>
                             <p class="project-description">
                                 progettazione e supporto alla realizzazione di pozzi e sistemi di subirrigazione, sulla base di valutazione idrogeologiche e della compatibilità con il contesto locale.
-                                
                             </p>
                         </div>
-                        <span class="project-number" aria-hidden="true">06</span>
+                        <div class="project-card-media">
+                            <img src="assets/Installazione impianto di irrigazione sotterranea.png" alt="Pozzi e sistemi di subirrigazione">
+                        </div>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         SECTION 3 - Contatti (Footer)
-         ============================================ -->
     <footer class="contatti" id="contatti" aria-labelledby="contatti-title">
         <div class="contatti-container">
             <div class="contatti-header">
@@ -220,12 +176,10 @@
                 <p class="contatti-text">
                     Hai un progetto o un intervento da realizzare? <br>
                     Contattami per una valutazione preliminare o per definire il supporto più adatto al tuo caso.
-
                 </p>
             </div>
             
             <div class="contatti-links">
-                <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/francesco-facchini-06740915b/" class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn">
                     <div class="contact-icon">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -238,8 +192,7 @@
                     </div>
                 </a>
 
-                <!-- Phone -->
-                <a href="tel:+331 4319900" class="contact-item" aria-label="Chiama">
+                <a href="tel:+3314319900" class="contact-item" aria-label="Chiama">
                     <div class="contact-icon">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -251,11 +204,9 @@
                     </div>
                 </a>
 
-                <!-- Email -->
                 <a href="mailto:geologo.facchini@gmail.com" class="contact-item" aria-label="Invia email">
                     <div class="contact-icon">
-                       <img src="assets/mail_bold.png" alt="Icona Mail" style="height: 28px; width: 28px;">
-                        </svg>
+                        <img src="assets/mail_bold.png" alt="Icona Mail" style="height: 28px; width: 28px;">
                     </div>
                     <div class="contact-info">
                         <span class="contact-label">Email</span>
@@ -265,22 +216,17 @@
             </div>
         </div>
 
-        <!-- Footer Bottom -->
         <div class="footer-bottom">
             <p class="footer-copyright">
                 © 2026 Francesco Facchini. Tutti i diritti riservati.
             </p>
             <div class="footer-logo">
-                <img src="assets/Logo_02_Bianco.png" alt="Logo Bianco foot page" style="height: auto; width: 160px; opacity: 0.8; ">
+                <img src="assets/Logo_02_Bianco.png" alt="Logo Bianco foot page" style="height: auto; width: 160px; opacity: 0.8;">
             </div>
         </div>
     </footer>
 
-    <!-- ============================================
-         JAVASCRIPT - Mobile Menu & Smooth Scroll
-         ============================================ -->
     <script>
-        // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -290,7 +236,6 @@
             this.setAttribute('aria-expanded', isActive);
         });
 
-        // Close mobile menu when clicking a link
         document.querySelectorAll('.navbar-links a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -299,7 +244,7 @@
             });
         });
 
-        // Navbar shadow on scroll
+     // Navbar shadow on scroll
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
