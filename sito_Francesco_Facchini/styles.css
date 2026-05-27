@@ -530,6 +530,12 @@ DI COSA MI OCCUPO
 .project-card--dark * {
     color: #ffffff !important;
 }
+.project-card--green{
+    background-color: #44613d;
+}
+.project-card--green *{
+    color: #ffffff !important;
+}
 
 /* Testi Card */
 .project-title {
@@ -551,15 +557,21 @@ DI COSA MI OCCUPO
 }
 
 .project-icon {
-    width: 65px;
-    height: 65px;
+    width: 140px;
+    height: 140px;
     object-fit: contain;
     display: block;
     filter: brightness(0) invert(1); /* Effetto bianco base */
-    transform: scale(1.8);
     transform-origin: center;
     flex-shrink: 0;
+    transform: scale(1.6);
 }
+
+
+
+
+
+
 
 .project-card:hover .project-title {
     background-size: 100% 1.5px;
@@ -615,6 +627,10 @@ DI COSA MI OCCUPO
 
 .project-card--dark .project-card-media::before {
     background: linear-gradient(to right, #202020, transparent);
+}
+
+.project-card--green .project-card-media::before{
+    background:linear-gradient(to right, #44613d, transparent);
 }
 
 /* Su mobile (colonne) il fade va dall'alto verso il basso */
