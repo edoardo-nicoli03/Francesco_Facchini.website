@@ -567,7 +567,10 @@ DI COSA MI OCCUPO
     transform: scale(1.6);
 }
 
-
+.icon--metodo{
+    transform: scale(1.8);
+    margin-right: -3px;
+}
 
 
 
@@ -690,7 +693,7 @@ DI COSA MI OCCUPO
     color: rgba(255, 255, 255, 0.7);
     margin-top: var(--space-lg);
     font-size: 1rem;
-}
+}i
 
 .contatti-links {
     display: flex;
